@@ -60,6 +60,8 @@ int main(void){
     duration = (endTime - startTime) / CLOCKS_PER_SEC;
     printf("LinSearch needed: %.7fs\n", duration);
 
+    if (myFile == NULL) { printf("Filen er ikke blevet fundet, fuccckk"); }
+
     /* Prints the result */
     int result=LinSearch(array, x);
     if (result == -1){
@@ -81,15 +83,34 @@ int main(void){
 }
 
 int LinSearch(int array[], int x){
-    int i=0;
+    int i = 0;
     /* Fill in your code HERE! */
-
-    return i;
+    while (i < N && array[i] != x) {
+        i++;
+    }
+    if (i <= N) {
+        return i;
+    } else {
+        return -1;
+    }
 }
 
 int BinSearch(int array[], int x){
-    int i=0;
+    int i = 0;
+    int j = N - 1;
+    int m = 0;
     /* Fill in your code HERE */
-
-    return i;
+    while (i < j) {
+        m = floor((i + j) / 2);
+        if (x > array[m]) {
+            i = m + 1;
+        } else {
+            j = m;
+        }
+    }
+    if (x == array[i]) {
+        return i;
+    } else {
+        return -1;
+    }
 }
