@@ -83,6 +83,7 @@ int main(void){
 int LinSearch(int array[], int x){
     int i=0;
     /* Fill in your code HERE! */
+    
 
     return i;
 }
